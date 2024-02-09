@@ -36,13 +36,17 @@
     margin: 0 0 2rem 0;
   }
   h1 {
-    font-size: 4rem;
+    font-size: 6rem;
   }
   h2 {
-    font-size: 3.6rem;
+    font-size: 3.2rem;
   }
   h3 {
     font-size: 3.2rem;
+  }
+
+  h4{
+    font-size: 2rem;
   }
 }
 
@@ -52,4 +56,12 @@
     max-width: 1200px;
     margin: 0 auto;
   }
+
+  .hero {
+    background-image: url('../public/img/hero-bg.jpg');
+    background-size: cover; /* This ensures the image covers the entire background */
+    background-repeat: no-repeat; /* This prevents the image from repeating */
+    /* You can also specify other properties like background-position if needed */
+  }
+  
 }

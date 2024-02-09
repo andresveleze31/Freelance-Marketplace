@@ -14,7 +14,7 @@ function Navbar() {
       <div className="flex justify-between items-center">
         <img src="../../public/img/logo.png" alt="Logo" />
 
-        <nav className="flex gap-[2rem] items-center ">
+        <nav className="flex gap-[4rem] items-center ">
           <a
             className="font-medium hover:text-primary transition-all duration-300"
             href=""
