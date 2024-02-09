@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const currentUser = {
@@ -12,7 +13,9 @@ function Navbar() {
   return (
     <div className="contenedor py-[2rem] ">
       <div className="flex justify-between items-center">
-        <img src="../../public/img/logo.png" alt="Logo" />
+        <Link to={"/"}>
+          <img src="../../public/img/logo.png" alt="Logo" />
+        </Link>
 
         <nav className="flex gap-[4rem] items-center ">
           <a
@@ -65,43 +68,45 @@ function Navbar() {
                 src="../../public/img/profile.jpg"
                 alt="Image Profile"
               />
-              <p className="cursor-pointer font-medium">{currentUser?.username}</p>
+              <p className="cursor-pointer font-medium">
+                {currentUser?.username}
+              </p>
               {open && (
                 <div className="absolute top-[6rem] right-0 p-[2rem] bg-white border border-[1px] rounded-xl flex flex-col text-lightGray w-[20rem] ">
                   {currentUser?.isSeller && (
                     <>
-                      <a
+                      <Link to={"/mygigs"}
                         className="font-medium hover:text-primary transition-all duration-300"
                         href=""
                       >
                         Gigs
-                      </a>
-                      <a
+                      </Link>
+                      <Link to={"/add"}
                         className="font-medium hover:text-primary transition-all duration-300"
                         href=""
                       >
                         Add New Gig
-                      </a>
+                      </Link>
                     </>
                   )}
-                  <a
+                  <Link to={"/orders"}
                     className="font-medium hover:text-primary transition-all duration-300"
                     href=""
                   >
                     Orders
-                  </a>
-                  <a
+                  </Link>
+                  <Link to={"/messages"}
                     className="font-medium hover:text-primary transition-all duration-300"
                     href=""
                   >
                     Messages
-                  </a>
-                  <a
+                  </Link>
+                  <Link to={"/"}
                     className="font-medium hover:text-primary transition-all duration-300"
                     href=""
                   >
                     Logout
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
