@@ -72,16 +72,18 @@ function Navbar() {
                 {currentUser?.username}
               </p>
               {open && (
-                <div className="absolute top-[6rem] right-0 p-[2rem] bg-white border border-[1px] rounded-xl flex flex-col text-lightGray w-[20rem] ">
+                <div className="absolute z-50 top-[6rem] right-0 p-[2rem] bg-white border border-[1px] rounded-xl flex flex-col text-lightGray w-[20rem] ">
                   {currentUser?.isSeller && (
                     <>
-                      <Link to={"/mygigs"}
+                      <Link
+                        to={"/mygigs"}
                         className="font-medium hover:text-primary transition-all duration-300"
                         href=""
                       >
                         Gigs
                       </Link>
-                      <Link to={"/add"}
+                      <Link
+                        to={"/add"}
                         className="font-medium hover:text-primary transition-all duration-300"
                         href=""
                       >
@@ -89,19 +91,22 @@ function Navbar() {
                       </Link>
                     </>
                   )}
-                  <Link to={"/orders"}
+                  <Link
+                    to={"/orders"}
                     className="font-medium hover:text-primary transition-all duration-300"
                     href=""
                   >
                     Orders
                   </Link>
-                  <Link to={"/messages"}
+                  <Link
+                    to={"/messages"}
                     className="font-medium hover:text-primary transition-all duration-300"
                     href=""
                   >
                     Messages
                   </Link>
-                  <Link to={"/"}
+                  <Link
+                    to={"/"}
                     className="font-medium hover:text-primary transition-all duration-300"
                     href=""
                   >
