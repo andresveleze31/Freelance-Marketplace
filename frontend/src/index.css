@@ -63,6 +63,15 @@
     /* You can also specify other properties like background-position if needed */
   }
 
+  .banner {
+    background-image: url("../public/img/banner.jpg");
+    background-size: cover; /* This ensures the image covers the entire background */
+    background-repeat: no-repeat; /* This prevents the image from repeating */
+    /* You can also specify other properties like background-position if needed */
+  }
+
+
+
   .card {
     display: flex;
   }

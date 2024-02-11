@@ -22,11 +22,11 @@ function ServiceCard({ item }) {
           <div className="pl-[1rem] ">
             <p className="text-[1.4rem] font-medium ">{item.username} </p>
             <p className="text-[1.4rem] font-medium text-lightGray ">
-              New Seller{" "}
+              {item.cat}{" "}
             </p>
           </div>
         </div>
-        <Link className="line-clamp-2 mt-[1rem] hover:text-primary transition-all duration-300">
+        <Link to={"/gig/123"} className="line-clamp-2 mt-[1rem] hover:text-primary transition-all duration-300">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quisquam
           officiis natus ducimus culpa enim reiciendis ratione cumque.
           Voluptatem dolor aliquam esse consequatur assumenda architecto amet
