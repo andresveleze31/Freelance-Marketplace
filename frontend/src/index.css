@@ -19,7 +19,6 @@
 
   p {
     font-size: 1.6rem;
-
   }
   a {
     text-decoration: none;
@@ -39,13 +38,13 @@
     font-size: 6rem;
   }
   h2 {
-    font-size: 3.2rem;
+    font-size: 4rem;
   }
   h3 {
     font-size: 3.2rem;
   }
 
-  h4{
+  h4 {
     font-size: 2rem;
   }
 }
@@ -58,10 +57,13 @@
   }
 
   .hero {
-    background-image: url('../public/img/hero-bg.jpg');
+    background-image: url("../public/img/hero-bg.jpg");
     background-size: cover; /* This ensures the image covers the entire background */
     background-repeat: no-repeat; /* This prevents the image from repeating */
     /* You can also specify other properties like background-position if needed */
   }
-  
+
+  .card {
+    display: flex;
+  }
 }

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function Hero() {
   return (
-    <header className="px-[2rem] ">
+    <header className="px-[8rem] ">
       <div className="hero rounded-3xl">
-        <div className="contenedor grid grid-cols-[3fr,2fr] gap-[5rem] py-[6rem] items-center px-[2rem] ">
+        <div className="contenedor grid grid-cols-[3fr,2fr] gap-[5rem] pt-[6rem] pb-[16rem] items-center px-[2rem] ">
           <div>
             <h1 className="font-bold">
               Your Gateway to Elite Freelancers - Prohire
