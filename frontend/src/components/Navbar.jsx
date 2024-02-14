@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import newRequest from "../../utils/newRequest.js";
 
 function Navbar() {
-  const currentUser = {
-    id: 1,
-    username: "John Doe",
-    isSeller: true,
-  };
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  async function handleLogout() {
+    try {
+      await newRequest.post("/api/auth/logout");
+      localStorage.setItem("currentUser", null);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="contenedor py-[2rem] ">
@@ -36,12 +44,13 @@ function Navbar() {
           >
             English
           </a>
-          <a
+          <Link
+            to={"/login"}
             className="font-medium hover:text-primary transition-all duration-300"
             href=""
           >
             Sign in
-          </a>
+          </Link>
           {!currentUser?.isSeller && (
             <a
               className="font-medium hover:text-primary transition-all duration-300"
@@ -51,12 +60,13 @@ function Navbar() {
             </a>
           )}
           {!currentUser && (
-            <a
+            <Link
+              to={"/register"}
               className="font-medium hover:text-primary transition-all duration-300"
               href=""
             >
               Join
-            </a>
+            </Link>
           )}
           {currentUser && (
             <div
@@ -65,7 +75,7 @@ function Navbar() {
             >
               <img
                 className="w-[5rem] cursor-pointer object-cover h-[5rem] rounded-full "
-                src="../../public/img/profile.jpg"
+                src={currentUser.img || "../../public/img/no_profile.png"}
                 alt="Image Profile"
               />
               <p className="cursor-pointer font-medium">
@@ -106,7 +116,7 @@ function Navbar() {
                     Messages
                   </Link>
                   <Link
-                    to={"/"}
+                    onClick={handleLogout}
                     className="font-medium hover:text-primary transition-all duration-300"
                     href=""
                   >

@@ -9,14 +9,26 @@ import MyGigs from "./pages/MyGigs";
 import Add from "./pages/Add";
 import Messages from "./pages/Messages";
 import Message from "./pages/Message";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
 
 function App() {
+  const queryClient = new QueryClient();
+
   const Layout = () => {
     return (
       <div>
-        <Navbar />
-        <Outlet />
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </QueryClientProvider>
       </div>
     );
   };
@@ -27,38 +39,46 @@ function App() {
       element: <Layout />,
       children: [
         {
-          path:"/",
-          element: <Home />
+          path: "/",
+          element: <Home />,
         },
         {
-          path:"/gigs",
-          element: <Gigs />
+          path: "/login",
+          element: <Login />,
         },
         {
-          path:"/gig/:id",
-          element: <Gig />
+          path: "/register",
+          element: <Register />,
         },
         {
-          path:"/orders",
-          element: <Orders />
+          path: "/gigs",
+          element: <Gigs />,
         },
         {
-          path:"/mygigs",
-          element: <MyGigs />
+          path: "/gig/:id",
+          element: <Gig />,
         },
         {
-          path:"/add",
-          element: <Add />
+          path: "/orders",
+          element: <Orders />,
         },
         {
-          path:"/messages",
-          element: <Messages />
+          path: "/mygigs",
+          element: <MyGigs />,
         },
         {
-          path:"/message/:id",
-          element: <Message />
+          path: "/add",
+          element: <Add />,
         },
-      ]
+        {
+          path: "/messages",
+          element: <Messages />,
+        },
+        {
+          path: "/message/:id",
+          element: <Message />,
+        },
+      ],
     },
   ]);
 

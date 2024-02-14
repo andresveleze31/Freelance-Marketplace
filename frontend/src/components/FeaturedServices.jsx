@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { projects } from "../data";
 import ServiceCard from "./ServiceCard";
 import { Link } from "react-router-dom";
+import newRequest from "../../utils/newRequest";
 
 function FeaturedServices() {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect( async () => {
+    await newRequest.get(`/api/gigs`).then((res) => {
+      setData(res.data);
+      setLoading(false);
+    });
+
+  }, []);
+
   return (
     <div className="contenedor mt-[8rem] ">
       <h2 className="text-center font-bold pb-[4rem] ">
@@ -11,9 +23,13 @@ function FeaturedServices() {
       </h2>
 
       <div className="grid grid-cols-4 gap-[3rem] ">
-        {projects.map((project) => {
-          return <ServiceCard item={project} />;
-        })}
+        {isLoading ? (
+          <h2 className="font-bold">Loading...</h2>
+        ) : (
+          data.map((project) => {
+            return <ServiceCard item={project} />;
+          })
+        )}
       </div>
 
       <div className="mt-[5rem] flex justify-center ">
